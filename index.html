@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="top">
+            <p><h1>Witaj w grze memory!</h1></p>
+        </div>
+        <div class="bottom">
+            <p>
+                <form action="main.html" method="GET">
+                    <label for="level-select">Wybierz poziom trudności: </label>
+                    <div class="select" >
+                        <select name="memory" id="level-select">
+                            <option value="first-level">2x4</option>
+                            <option value="second-level">3x4</option>
+                            <option value="third-level">4x4</option>
+                            <option value="fourth-level">4x5</option>
+                            <option value="fifth-level">4x6</option>
+                            <option value="sixth-level">5x6</option>
+                        </select>
+                    </div>
+                    <!-- <input type="submit" value="START GAME"/> -->
+                    <button type="submit">START GAME</button>
+                </form>
+            </p>
+        </div>
+    </div>
+
+    <script src="/js/app.js"></script>
+</body>
+</html>

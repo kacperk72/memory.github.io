@@ -1,0 +1,311 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto Slab', serif;
+    background-color: wheat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* index files */
+.wrapper {
+    width: 600px;
+    background-color: #fff;
+    box-shadow: 0 0 10px #000;
+}
+
+
+.bottom {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.select {
+  padding-top: 30px;
+}
+
+.heart {
+  height:40px;
+  width: 40px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+header {
+  display: flex;
+  width: 100vw;
+  height: 50px;
+  margin-bottom: 40px;
+  justify-content: center;
+}
+
+.menu {
+  margin-bottom: 50px;
+}
+
+.menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #FF8C00;
+}
+
+.menu li {
+  float: left;
+}
+
+.menu li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px 18px;
+  text-decoration: none;
+}
+
+.menu li a:hover {
+  background-color: #FF7F50;
+}
+
+/* Przycisk pobrany z: */
+/* https://codepen.io/stevenlei/pen/ZEpyBod */
+    button, button::after {
+        width: 280px;
+        height: 86px;
+        font-size: 26px;
+        font-family: 'Bebas Neue', cursive;
+        background: linear-gradient(45deg, transparent 5%, #1e7bc7 5%);
+        border: 0;
+        color: #fff;
+        letter-spacing: 2px;
+        line-height: 88px;
+        box-shadow: 6px 0px 0px #00E6F6;
+        outline: transparent;
+        position: relative;
+      }
+      
+      button::after {
+        --slice-0: inset(50% 50% 50% 50%);
+        --slice-1: inset(80% -6px 0 0);
+        --slice-2: inset(50% -6px 30% 0);
+        --slice-3: inset(10% -6px 85% 0);
+        --slice-4: inset(40% -6px 43% 0);
+        --slice-5: inset(80% -6px 5% 0);
+        
+        content: 'START GAME';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, transparent 3%, #00E6F6 3%, #00E6F6 5%, #FF013C 5%);
+        text-shadow: -3px -3px 0px #F8F005, 3px 3px 0px #00E6F6;
+        clip-path: var(--slice-0);
+      }
+      
+      button:hover::after {
+        animation: 1s glitch;
+        animation-timing-function: steps(2, end);
+      }
+      
+      @keyframes glitch {
+        0% {
+          clip-path: var(--slice-1);
+          transform: translate(-20px, -10px);
+        }
+        10% {
+          clip-path: var(--slice-3);
+          transform: translate(10px, 10px);
+        }
+        20% {
+          clip-path: var(--slice-1);
+          transform: translate(-10px, 10px);
+        }
+        30% {
+          clip-path: var(--slice-3);
+          transform: translate(0px, 5px);
+        }
+        40% {
+          clip-path: var(--slice-2);
+          transform: translate(-5px, 0px);
+        }
+        50% {
+          clip-path: var(--slice-3);
+          transform: translate(5px, 0px);
+        }
+        60% {
+          clip-path: var(--slice-4);
+          transform: translate(5px, 10px);
+        }
+        70% {
+          clip-path: var(--slice-2);
+          transform: translate(-10px, 10px);
+        }
+        80% {
+          clip-path: var(--slice-5);
+          transform: translate(20px, -10px);
+        }
+        90% {
+          clip-path: var(--slice-1);
+          transform: translate(-10px, 0px);
+        }
+        100% {
+          clip-path: var(--slice-1);
+          transform: translate(0);
+        }
+      }   
+
+
+.top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 200px;
+    color:#fff;
+    font-weight: bold;
+    background-color: lightblue;
+}
+
+.top p {
+    margin-top: 10px;
+}
+
+/* memory game */
+section {
+    display: grid;
+    /* grid-template-columns: repeat(5,8rem); */
+    /* grid-template-rows: repeat(3,8rem); */
+    grid-gap: 1rem;
+    /* do obracania */
+    perspective: 800px;
+}
+
+.card {
+    position: relative;
+    /* efekt obracania karty */
+    transform-style: preserve-3d;
+    transition: all 2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* transform: rotateY(180deg); */
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px; 
+}
+
+.face,.back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    pointer-events: none;
+}
+
+.back {
+    background: white;
+    backface-visibility: hidden;
+    
+}
+
+.toggleCard {
+    transform: rotateY(180deg);
+}
+
+/* opcje wyboru */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+:root {
+    --select-border: #777;
+    --select-focus: blue;
+    --select-arrow: var(--select-border);
+  }
+  select {
+    width: 50%;
+    margin-bottom: 10%;
+    margin-top: 5%;
+    min-width: 15ch;
+    max-width: 30ch;
+    border: 1px solid var(--select-border);
+    border-radius: 0.25em;
+    padding: 0.25em 0.5em;
+    font-size: 1.25rem;
+    cursor: pointer;
+    line-height: 1.1;
+    background-color: #fff;
+    background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+  }
+
+/* plik rules */
+.rules {
+  width: 400px;
+  height: 180px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px; 
+  font-family: 'Roboto Slab', serif;
+  padding:20px;
+}
+
+/*plik author */
+.author {
+  display: inline-block;
+  width: 500px;
+  height: 200px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px; 
+  font-family: 'Roboto Slab', serif;
+  padding:20px;
+  align-items: center;
+}
+
+.author img {
+  float:right;
+  width: 250px;
+  height: 150px;
+  padding: 20px;
+}
+
+/* popup window */
+.modal_container1, .modal_container2 {
+  background-color: rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  opacity: 0;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  transition: opacity 0.3s ease;
+}
+
+.modal_container1.show, .modal_container2.show {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.modal1, .modal2 {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 30px 50px;
+  width: 600px;
+  max-width: 100%;
+  text-align: center;
+}
+
+.modal1 h1, .modal2 h1 {
+  margin-bottom: 20px;
+}
