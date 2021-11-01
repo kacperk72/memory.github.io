@@ -121,7 +121,7 @@ const drawLives = () => {
         const heart = document.createElement('img');
         heart.classList = 'heart';
         heart.id = `serce${i}`;
-        heart.src = '/img/heart_icon.jpg';
+        heart.src = 'heart_icon.jpg';
         document.getElementById('header').appendChild(heart);
     }
 };
