@@ -4,26 +4,7 @@
     box-sizing: border-box;
 }
 
-@media only screen 
-and (max-device-width: 600px){ 
-  .wrapper{
-    width: 90%;
-    margin: 20px;
-  }
-  .game-field {
-    display:inline-block;
-    width: 100%;
-    margin-left: 50px;
-  }
-  
-  .card {
-    float: left;
-    width: 100px;
-    height: 100px;
-    margin: 10px;
-  }
-  
-}
+
 
 body {
     font-family: 'Roboto Slab', serif;
@@ -327,4 +308,25 @@ section {
 
 .modal1 h1, .modal2 h1 {
   margin-bottom: 20px;
+}
+
+@media only screen 
+and (max-device-width: 600px){ 
+  .wrapper{
+    width: 90%;
+    margin: 20px;
+  }
+  .game-field {
+    display:inline-block;
+    width: 100%;
+    margin-left: 50px;
+  }
+  
+  .card {
+    float: left;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+  }
+  
 }
