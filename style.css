@@ -48,6 +48,10 @@ header {
   justify-content: center;
 }
 
+.menu {
+    margin-bottom:10px;
+}
+
 .menu ul {
   list-style-type: none;
   margin: 0;
